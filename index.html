@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <title>Encuesta</title>
+
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="icon" type="image/gif" href="favicon.gif" />
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body ng-app="contactApp">
+            <div class="container">
+                <div class="col s12">
+                    <h2 class="center-align" >Encuesta</h2>
+                    <div class="divider"></div>
+                    <br>
+                    <div class="divider"></div>
+                    <br><br>
+
+                    <div ng-controller="ContactController">
+
+                        <form ng-submit="submit(contactform)" name="contactform" method="post" action="" role="form">
+                            <div class="row">
+
+                                <span class=" " ng-class="{ 'has-error': contactform.p0.$invalid && submitted }">
+                                    <h5>Nombre de empresa</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">account_balance</i>
+                                        <input ng-model="formData.p0" id="p0" name="p0" type="text">
+                                    </div>
+
+                                </span>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+
+                                <span class=" " ng-class="{ 'has-error': contactform.p1.$invalid && submitted }">
+                                    <h5>¿Qué tipo de comercio tienes?</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">work</i>
+                                        <input ng-model="formData.p1" id="p1" name="p1" type="text">
+                                    </div>
+
+                                </span>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+
+                                <span class=" " ng-class="{ 'has-error': contactform.p2.$invalid && submitted }">
+                                    <h5>¿Usas algún sistema?</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">desktop_mac</i>
+                                        <select  multiple="string" ng-model="formData.p2"  id="p2" name="p2[]">
+                                          <option value="" disabled selected>Choose your option</option>
+                                          <option value="Profit">Profit</option>
+                                          <option value="Valery">Valery</option>
+                                          <option value="Ninguno">Ninguno</option>
+                                          <option value="otro">Otro</option>
+                                        </select>
+                                    </div>
+                                </span>
+
+                                <div id="p2a" style="display:none;">
+                                    <div class="input-field">
+                                        <input placeholder="¿Cuál otro?" ng-model="formData.ap2a" id="ap2a" name="ap2a" type="text">
+                                    </div>
+                                </div>
+
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+                                <span class=" " ng-class="{ 'has-error': contactform.p3.$invalid && submitted }">
+                                    <h5>¿Es de fácil manejo?</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">thumb_up</i>
+                                        <select ng-model="formData.p3"  id="p3" name="p3[]">
+                                          <option value="" disabled selected>Choose your option</option>
+                                          <option value="Si">Si</option>
+                                          <option value="No">No</option>
+                                        </select>
+                                    </div>
+
+                                </span>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+                                <span class=" " ng-class="{ 'has-error': contactform.p4.$invalid && submitted }">
+                                    <h5>¿Tiene alguna desventaja para ti?</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">warning</i>
+                                        <select ng-model="formData.p4"  id="p4" name="p4[]">
+                                          <option value="" disabled selected>Choose your option</option>
+                                          <option value="Si">Si</option>
+                                          <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </span>
+
+                                <div id="p4a" style="display:none;">
+                                    <div class="input-field">
+                                        <input placeholder="¿Qué desventaja?" ng-model="formData.ap4a" id="ap4a" name="ap4a" type="text">
+                                    </div>
+                                </div>
+
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+                                <div class=" " ng-class="{ 'has-error': contactform.p5.$invalid && submitted }">
+                                    <h5>¿Monitoreas desde tu teléfono algún procesos?</h5>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">phone_android</i>
+                                        <select  multiple="string" ng-model="formData.p5"  id="p5" name="p5[]">
+                                            <option value="" disabled selected>Choose your option</option>
+                                            <option value="Facturas">Facturas</option>
+                                            <option value="Pagos">Pagos</option>
+                                            <option value="Contabilidad">Contabilidad</option>
+                                            <option value="Comisiones">Comisiones</option>
+                                            <option value="Ninguno">Ninguno</option>
+                                            <option value="otro">Otros</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="p5a" style="display:none;">
+                                    <div class="input-field">
+                                        <input placeholder="¿Qué otro proceso?" ng-model="formData.ap5a" id="ap5a" name="ap5a" type="text">
+                                    </div>
+                                </div>
+
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row">
+                                <div class=" " ng-class="{ 'has-error': contactform.p6.$invalid && submitted }">
+                                    <h5>¿Algún comentario adicional?</h5>
+                                    <div class="input-field">
+                                      <i class="material-icons prefix">message</i>
+                                    <textarea ng-model="formData.p6"  id="p6" name="p6" rows="15" style="resize: vertical;" placeholder="Tu Mensaje"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="divider"></div>
+                            <div class="row center-align">
+                                <button type="submit" class="btn " ng-disabled="submitButtonDisabled"><i class="material-icons left">send</i>Enviar Encuesta</button>
+                            </div>
+                        </form>
+                        <h2 ng-class="result" class="white-text center-align" style="padding: 15px; margin: 0;">
+                            {{ resultMessage }}
+                        </h2>
+                </div>
+            </div>
+
+
+        <script>
+            $("#p2").change(function() {
+                var p2 = $( "#p2" ).val();
+                var showp2 = 0;
+                $( "#p2 option:selected" ).each(function() {
+                    if($(this).val()=='otro'){
+                        showp2++;
+                    }
+                });
+                if(showp2==1){
+                    document.getElementById('p2a').style.display='block';
+                }else {
+                    document.getElementById('p2a').style.display='none';
+                }
+            });
+            $("#p4").change(function() {
+                var p4 = $( "#p4" ).val();
+                if(p4=='Si'){
+                    document.getElementById('p4a').style.display='block';
+                }else {
+                    document.getElementById('p4a').style.display='none';
+                };
+            });
+            $("#p5").change(function() {
+                var p5 = $( "#p5" ).val();
+                var showp5 = 0;
+                $( "#p5 option:selected" ).each(function() {
+                      if($(this).val()=='otro'){
+                        showp5++;
+                      }
+                });
+                if(showp5==1){
+                    document.getElementById('p5a').style.display='block';
+                }else {
+                    document.getElementById('p5a').style.display='none';
+                }
+            });
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+        <script src="app.js"></script>
+        <script src="controllers.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('select').material_select();
+            });
+        </script>
+    </body>
+</html>
